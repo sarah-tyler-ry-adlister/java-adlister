@@ -13,6 +13,9 @@ import java.util.List;
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
 
+    private List<Ad> ads = new ArrayList<>();
+
+
     public MySQLAdsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
@@ -36,6 +39,11 @@ public class MySQLAdsDao implements Ads {
         } catch (SQLException e) {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
+    }
+
+    @Override
+    public Ad findOne (long id) throws IndexOutOfBoundsException {
+        return ads.get( (int) id - 1);
     }
 
     @Override
