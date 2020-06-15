@@ -14,13 +14,11 @@ import java.io.IOException;
 public class ShowAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         long id = Long.parseLong(request.getParameter("id"));
-
         try {
             Ad ad = DaoFactory.getAdsDao().findOne(id);
             request.setAttribute("ad", ad);
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
-//            request.setAttribute("error", "Ad does not exist.");
         }
 
         request.getRequestDispatcher("/WEB-INF/ads/show.jsp").forward(request, response);
