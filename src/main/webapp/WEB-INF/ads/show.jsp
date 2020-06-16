@@ -15,17 +15,9 @@
         <div class="col-md-12">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
-<%--            <p>${ad.id}</p>--%>
+            <p>Created by user: ${adCreator.username}</p>
+            <p>User email: ${adCreator.email}</p>
         </div>
-
-
-<%--        <div class="col-md-12">--%>
-<%--            <h2>${ad.title}</h2>--%>
-<%--            <p>${ad.description}</p>--%>
-<%--&lt;%&ndash;            <p>${ad.userId}</p>&ndash;%&gt;--%>
-
-<%--        </div>--%>
-
 </div>
 
 </body>
