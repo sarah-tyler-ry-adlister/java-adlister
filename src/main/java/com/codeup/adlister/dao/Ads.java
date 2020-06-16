@@ -8,6 +8,9 @@ public interface Ads {
     // get a list of all the ads
     List<Ad> all();
 
+    //get a list of all the ads associated with a user
+    List<Ad> all(int id);
+
     //get one ad
     Ad findOne(long id);
 
