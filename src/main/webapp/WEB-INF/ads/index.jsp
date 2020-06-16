@@ -15,7 +15,7 @@
     <c:forEach var="ad" items="${ads}">
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h2> class="card-title">${ad.title}</h2>
+            <h2 class="card-title">${ad.title}</h2>
             <p class="card-text">${ad.description}</p>
             <a href="${pageContext.request.contextPath}/ad?id=${ad.id}" class="card-link">View Ad</a>
         </div>
