@@ -13,11 +13,16 @@
     <h1>Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h2> class="card-title">${ad.title}</h2>
+            <p class="card-text">${ad.description}</p>
+            <a href="${pageContext.request.contextPath}/ad?id=${ad.id}" class="card-link">View Ad</a>
         </div>
+    </div>
     </c:forEach>
+
+
 </div>
 
 </body>
