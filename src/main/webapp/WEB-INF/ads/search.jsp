@@ -12,12 +12,16 @@
 <div class="container">
     <h1>Here is your search result:</h1>
 
-    <div class="col-md-12">
-        <h2>${ads.title}</h2>
-        <p>${ads.description}</p>
-<%--        <p>Created by user: ${adCreator.username}</p>--%>
-<%--        <p>User email: ${adCreator.email}</p>--%>
-    </div>
+    <c:forEach var="ad" items="${ads}">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h2 class="card-title">${ad.title}</h2>
+                <p class="card-text">${ad.description}</p>
+                <a href="${pageContext.request.contextPath}/ad?id=${ad.id}" class="card-link">View Ad</a>
+            </div>
+        </div>
+    </c:forEach>
+
 </div>
 
 </body>

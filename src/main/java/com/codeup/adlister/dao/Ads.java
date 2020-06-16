@@ -17,5 +17,4 @@ public interface Ads {
     //search for an ad
     List<Ad> searchAd(String keyword);
 
-
 }

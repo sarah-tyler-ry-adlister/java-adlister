@@ -59,23 +59,16 @@ public class MySQLAdsDao implements Ads {
         List<Ad> adList = new ArrayList<>();
         try {
 
-//            String sql = "SELECT * FROM products WHERE name LIKE ?";
-//            String searchTermWithWildcards = "%" + searchTerm + "%";
-
-            String searchQuery = "SELECT * FROM ads WHERE description LIKE ?";
+            String searchQuery = "SELECT * FROM ads WHERE description OR title LIKE ?";
             String searchTermWithWildcards = "%" + keyword + "%";
             PreparedStatement stmt = connection.prepareStatement(searchQuery);
             stmt.setString(1, searchTermWithWildcards);
-//            stmt.setString(2, searchTermWithWildcards);
             ResultSet rs = stmt.executeQuery();
-            while(rs.next()) {
-                adList.add(findOne(rs.getInt("id")));
-            }
+            return createAdsFromResults(rs);
 
         } catch (SQLException e) {
             throw new RuntimeException("Error in searching the ad", e);
         }
-        return adList;
     }
 
 

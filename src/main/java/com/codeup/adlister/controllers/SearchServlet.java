@@ -18,14 +18,10 @@ public class SearchServlet extends HttpServlet {
         String searchInput = request.getParameter("search");
         try {
             List<Ad> adList = DaoFactory.getAdsDao().searchAd(searchInput);
-            request.setAttribute("ad", adList);
+            request.setAttribute("ads", adList);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/ads/search.jsp").forward(request, response);
     }
-
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//    }
 }
