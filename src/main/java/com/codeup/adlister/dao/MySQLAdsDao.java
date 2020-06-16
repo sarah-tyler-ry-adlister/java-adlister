@@ -43,7 +43,8 @@ public class MySQLAdsDao implements Ads {
         PreparedStatement stmt = null;
 //        id = ads.get( (int) id - 1);
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ? LIMIT 1");
+            stmt.setString(1, String.valueOf(id));
             ResultSet rs = stmt.executeQuery();
             if(rs.next()) {
                 return extractAd(rs);
