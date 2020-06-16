@@ -69,7 +69,7 @@ public class MySQLAdsDao implements Ads {
 //            stmt.setString(2, searchTermWithWildcards);
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
-                adList.add(findOne(rs.getLong("id")));
+                adList.add(findOne(rs.getInt("id")));
             }
 
         } catch (SQLException e) {

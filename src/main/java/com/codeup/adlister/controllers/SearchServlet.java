@@ -18,7 +18,7 @@ public class SearchServlet extends HttpServlet {
         String searchInput = request.getParameter("search");
         try {
             List<Ad> adList = DaoFactory.getAdsDao().searchAd(searchInput);
-            request.setAttribute("ads", adList);
+            request.setAttribute("ad", adList);
         } catch (Exception e) {
             e.printStackTrace();
         }
