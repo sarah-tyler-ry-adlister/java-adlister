@@ -41,7 +41,6 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Ad findOne(long id) {
         PreparedStatement stmt = null;
-//        id = ads.get( (int) id - 1);
         try {
             stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ? LIMIT 1");
             stmt.setString(1, String.valueOf(id));
@@ -56,10 +55,30 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-//    @Override
-//    public Ad findOne (long id) throws IndexOutOfBoundsException {
-//        return ads.get( (int) id - 1);
-//    }
+    public List<Ad> searchAd(String keyword) {
+        List<Ad> adList = new ArrayList<>();
+        try {
+
+//            String sql = "SELECT * FROM products WHERE name LIKE ?";
+//            String searchTermWithWildcards = "%" + searchTerm + "%";
+
+            String searchQuery = "SELECT * FROM ads WHERE description LIKE ?";
+            String searchTermWithWildcards = "%" + keyword + "%";
+            PreparedStatement stmt = connection.prepareStatement(searchQuery);
+            stmt.setString(1, searchTermWithWildcards);
+//            stmt.setString(2, searchTermWithWildcards);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()) {
+                adList.add(findOne(rs.getLong("id")));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error in searching the ad", e);
+        }
+        return adList;
+    }
+
+
 
     @Override
     public Long insert(Ad ad) {
