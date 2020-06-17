@@ -20,4 +20,7 @@ public interface Ads {
     //search for an ad
     List<Ad> searchAd(String keyword);
 
+    //update an ad
+    Long updateAd(Ad ad, Ad updateAd);
+
 }
