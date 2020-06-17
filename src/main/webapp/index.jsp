@@ -10,6 +10,9 @@
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
         <h1>Welcome to the Adlister!</h1>
+        <form action="/ads" method="get">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">View All Ads</button>
+        </form>
     </div>
 </body>
 </html>
