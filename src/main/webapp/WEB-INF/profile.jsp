@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -11,7 +12,7 @@
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <p>Your email is: ${sessionScope.user.email}!</p>
-    </div>
+
 
     <div>
         <c:forEach var="ad" items="${ads}">
@@ -23,6 +24,7 @@
                 </div>
             </div>
         </c:forEach>
+    </div>
     </div>
 
 </body>
