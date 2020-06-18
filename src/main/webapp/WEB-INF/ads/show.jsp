@@ -18,6 +18,11 @@
         <p>Created by user: ${adCreator.username}</p>
         <p>User email: ${adCreator.email}</p>
     </div>
+
+    <a class="btn btn-primary" href="${pageContext.request.contextPath}/ads/update?id=${ad.id}" role="button">Update Ad</a>
+    <br>
+    <br>
+
     <form action="/ads" method="get">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">View All Ads</button>
     </form>

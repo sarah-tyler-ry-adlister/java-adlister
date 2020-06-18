@@ -12,16 +12,17 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Update your Ad.</h1>
-
-    <div class="col-md-12">
-        <h2>${ad.title}</h2>
-        <p>${ad.description}</p>
-<%--        <p>Created by user: ${adCreator.username}</p>--%>
-<%--        <p>User email: ${adCreator.email}</p>--%>
-    </div>
-    <form action="/ads" method="get">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">View All Ads</button>
+    <h1>Update an Ad</h1>
+    <form action="${pageContext.request.contextPath}/ads/update?id=${ad.id}" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input id="title" name="title" class="form-control" type="text" value="${ad.title}">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input id="description" name="description" class="form-control" type="text" value="${ad.description}">
+        </div>
+        <input type="submit" class="btn btn-block btn-primary">
     </form>
 </div>
 
