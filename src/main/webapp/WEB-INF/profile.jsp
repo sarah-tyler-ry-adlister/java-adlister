@@ -12,6 +12,7 @@
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <p>Your email is: ${sessionScope.user.email}!</p>
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/updateUser?username=${user.username}" role="button">Update Profile</a>
         <div>
             <br>
             <h1>Here are your ads:</h1>

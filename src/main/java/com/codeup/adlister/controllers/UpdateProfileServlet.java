@@ -16,11 +16,11 @@ import java.io.IOException;
 public class UpdateProfileServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Users userUpdateDao = DaoFactory.getUsersDao();
-        String username = request.getParameter("username");
+//        String username = request.getParameter("username");
         String email = request.getParameter("email");
         User oldUser = (User) request.getSession().getAttribute("user");
         try{
-            User newUser = new User(oldUser.getId(), username, email, oldUser.getPassword());
+            User newUser = new User(oldUser.getId(), oldUser.getUsername(), email, oldUser.getPassword());
             request.getSession().setAttribute("newUser", newUser);
             userUpdateDao.updateProfile(oldUser, newUser);
         }catch(Exception e) {
@@ -30,6 +30,9 @@ public class UpdateProfileServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String username = request.getParameter("username");
+        Users usersSqlDao = DaoFactory.getUsersDao();
+        request.setAttribute("user", usersSqlDao.findByUsername(username));
+        request.getRequestDispatcher("/WEB-INF/updateProfile.jsp").forward(request, response);
     }
 }

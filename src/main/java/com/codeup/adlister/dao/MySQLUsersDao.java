@@ -65,12 +65,12 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public Long updateProfile(User user, User updatedUser) {
-        String updateQuery = "UPDATE users SET username = ?, email = ? WHERE username = ?";
+        String updateQuery = "UPDATE users SET email = ? WHERE username = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
-            stmt.setString(1, updatedUser.getUsername());
-            stmt.setString(2, updatedUser.getEmail());
-            stmt.setString(3, user.getUsername());
+//            stmt.setString(1, updatedUser.getUsername());
+            stmt.setString(1, updatedUser.getEmail());
+            stmt.setString(2, user.getUsername());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
