@@ -21,8 +21,8 @@
             <c:forEach var="ad" items="${ads}">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h2 class="card-title">${ad.title}</h2>
-                        <p class="card-text">${ad.description}</p>
+                        <h2 class="card-title"><c:out value="${ad.title}"/></h2>
+                        <p class="card-text"><c:out value="${ad.description}"/></p>
                         <div>
                             <a class="btn btn-primary" href="${pageContext.request.contextPath}/ad?id=${ad.id}" role="button">View Ad</a>
                             <a class="btn btn-primary" href="${pageContext.request.contextPath}/ads/update?id=${ad.id}" role="button">Update Ad</a>

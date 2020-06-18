@@ -13,10 +13,10 @@
     <h1>Here is your ad!</h1>
 
     <div class="col-md-12">
-        <h2>${ad.title}</h2>
-        <p>${ad.description}</p>
-        <p>Created by user: ${adCreator.username}</p>
-        <p>User email: ${adCreator.email}</p>
+        <h2><c:out value="${ad.title}"/></h2>
+        <p><c:out value="${ad.description}"/></p>
+        <p>Created by user: <c:out value="${adCreator.username}"/></p>
+        <p>User email: <c:out value="${adCreator.email}"/></p>
     </div>
 
 <%--    <a class="btn btn-primary" href="${pageContext.request.contextPath}/ads/update?id=${ad.id}" role="button">Update Ad</a>--%>
