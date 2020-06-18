@@ -17,15 +17,16 @@
         <p><c:out value="${ad.description}"/></p>
         <p>Created by user: <c:out value="${adCreator.username}"/></p>
         <p>User email: <c:out value="${adCreator.email}"/></p>
+        <form action="/ads" method="get">
+            <button class="btn btn-primary my-2 my-sm-0" type="submit">View All Ads</button>
+        </form>
     </div>
 
 <%--    <a class="btn btn-primary" href="${pageContext.request.contextPath}/ads/update?id=${ad.id}" role="button">Update Ad</a>--%>
 <%--    <br>--%>
 <%--    <br>--%>
 
-    <form action="/ads" method="get">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">View All Ads</button>
-    </form>
+
 </div>
 
 </body>

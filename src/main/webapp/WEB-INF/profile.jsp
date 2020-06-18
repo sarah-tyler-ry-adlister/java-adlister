@@ -17,18 +17,17 @@
             <br>
             <h1>Here are your ads:</h1>
             <a class="btn btn-primary" href="${pageContext.request.contextPath}/ads/create" role="button">Create Ad</a>
-
             <c:forEach var="ad" items="${ads}">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h2 class="card-title"><c:out value="${ad.title}"/></h2>
                         <p class="card-text"><c:out value="${ad.description}"/></p>
-                        <div>
-                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ad?id=${ad.id}" role="button">View Ad</a>
-                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ads/update?id=${ad.id}" role="button">Update Ad</a>
-                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ads/delete?id=${ad.id}" role="button">Delete Ad</a>
-                        </div>
                     </div>
+                </div>
+                <div>
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/ad?id=${ad.id}" role="button">View Ad</a>
+                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/ads/update?id=${ad.id}" role="button">Update Ad</a>
+                    <a class="btn btn-danger" href="${pageContext.request.contextPath}/ads/delete?id=${ad.id}" role="button">Delete Ad</a>
                 </div>
             </c:forEach>
         </div>

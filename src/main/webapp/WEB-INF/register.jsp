@@ -30,16 +30,6 @@
             <input type="submit" class="btn btn-primary btn-block">
         </form>
 
-        <script>
-            "use strict";
-            (function () {
-                if (document.getElementById("password") !== document.getElementById("confirm_password")) {
-                    alert("Registration failed. Passwords do not match. Please try again.")
-                }
-
-            })();
-        </script>
-
     </div>
 </body>
 </html>
