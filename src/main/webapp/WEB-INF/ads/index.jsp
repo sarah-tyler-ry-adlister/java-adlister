@@ -17,7 +17,8 @@
         <div class="card-body">
             <h2 class="card-title">${ad.title}</h2>
             <p class="card-text">${ad.description}</p>
-            <a href="${pageContext.request.contextPath}/ad?id=${ad.id}" class="card-link">View Ad</a>
+            <a class="btn btn-primary" href="${pageContext.request.contextPath}/ad?id=${ad.id}" role="button">View Ad</a>
+
         </div>
     </div>
     </c:forEach>

@@ -23,4 +23,6 @@ public interface Ads {
     //update an ad
     Long updateAd(Ad ad, Ad updateAd);
 
+    Long deleteAd(long id);
+
 }
