@@ -20,8 +20,12 @@ public class UpdateAdServlet extends HttpServlet {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
 
+
         try{
             User user = (User) request.getSession().getAttribute("user");
+
+//            if()
+
             Ad upDatedAd = adToUpdateDao.findOne(id);
             adToUpdateDao.updateAd(upDatedAd, new Ad(user.getId(), title, description));
         } catch (Exception e){
