@@ -15,8 +15,8 @@
         <a class="btn btn-primary" href="${pageContext.request.contextPath}/updateUser?username=${user.username}" role="button">Update Profile</a>
         <div>
             <br>
-            <h1>Here are your ads:</h1>
             <a class="btn btn-primary" href="${pageContext.request.contextPath}/ads/create" role="button">Create Ad</a>
+            <h1>Here are your ads:</h1>
             <c:forEach var="ad" items="${ads}">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
