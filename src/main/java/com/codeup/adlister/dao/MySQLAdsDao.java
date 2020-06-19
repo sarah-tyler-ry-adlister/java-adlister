@@ -10,9 +10,6 @@ import java.util.List;
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
 
-    private List<Ad> ads = new ArrayList<>();
-
-
     public MySQLAdsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());
@@ -55,7 +52,7 @@ public class MySQLAdsDao implements Ads {
         PreparedStatement stmt = null;
         try {
             stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ? LIMIT 1");
-            stmt.setString(1, String.valueOf(id));
+            stmt.setLong(1, id);
             ResultSet rs = stmt.executeQuery();
             if(rs.next()) {
                 return extractAd(rs);

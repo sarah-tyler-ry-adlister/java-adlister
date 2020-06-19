@@ -12,9 +12,6 @@ import java.io.IOException;
 
 @WebServlet(name = "DeleteAdServlet", urlPatterns = "/ads/delete")
 public class DeleteAdServlet extends HttpServlet {
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         long id = Long.parseLong(request.getParameter("id"));

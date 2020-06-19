@@ -17,20 +17,6 @@ public class ShowAdServlet extends HttpServlet {
         long id = Long.parseLong(request.getParameter("id"));
         User adCreator = null;
 
-        //        User user = (User) request.getSession().getAttribute("user");
-//        System.out.println(user.getUsername());
-//        User adCreator = (User) request.getSession().getAttribute("sessionScope.user.username");
-//        System.out.println(adCreator);
-//         adCreator = (User) request.getSession().getAttribute("adCreator");
-//        System.out.println(adCreator.getUsername());
-//        boolean userIsCreator = user.getUsername().equalsIgnoreCase(adCreator.getUsername());
-//
-//        if (!userIsCreator ) {
-//            response.sendRedirect("/ads");
-//            return;
-//        }
-
-
         try {
             Ad ad = DaoFactory.getAdsDao().findOne(id);
             adCreator = DaoFactory.getUsersDao().findUserById(ad.getUserId());

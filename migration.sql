@@ -21,5 +21,7 @@ CREATE TABLE ads (
         ON DELETE CASCADE
 );
 
+ALTER TABLE users
+    ADD CONSTRAINT username_unique UNIQUE (username);
 
 
