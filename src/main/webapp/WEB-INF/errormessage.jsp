@@ -12,10 +12,6 @@
         <div class="alert alert-danger" role="alert">
             Action failed. Please try again.
         </div>
-        <div>
-            <a class="btn btn-primary" href="/register">Register</a>
-            <a class="btn btn-primary" href="/ads/create">Create Ad</a>
-        </div>
     </div>
 </body>
 </html>

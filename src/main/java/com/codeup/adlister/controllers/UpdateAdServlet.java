@@ -34,21 +34,15 @@ public class UpdateAdServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Ads adToUpdateDao = DaoFactory.getAdsDao();
 
-//        User user = (User) request.getSession().getAttribute("user");
-//        System.out.println(user.getUsername());
-//        User adCreator = (User) request.getSession().getAttribute("sessionScope.user.username");
-//        System.out.println(adCreator);
-//        User adCreator = (User) request.getSession().getAttribute("adCreator");
-//        System.out.println(adCreator.getUsername());
-//        boolean userIsCreator = user.getUsername().equalsIgnoreCase(adCreator.getUsername());
-//
-//        if (!userIsCreator ) {
-//            response.sendRedirect("/ads");
-//            return;
-//        }
-
         try{
-            request.setAttribute("ad", adToUpdateDao.findOne(id));
+            User user = (User) request.getSession().getAttribute("user");
+            Ad ad = adToUpdateDao.findOne(id);
+            if(ad.getUserId() != user.getId()){
+                response.sendRedirect("/error");
+                return;
+            }
+            request.setAttribute("ad", ad);
+
         } catch (IndexOutOfBoundsException e){
             e.printStackTrace();
         }
