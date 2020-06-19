@@ -11,9 +11,9 @@
 
 <div class="container">
     <h1>Here are all the ads!</h1>
-<div class="row">
+<%--<div class="row">--%>
     <c:forEach var="ad" items="${ads}">
-    <div class="card col-md-4" style="width: 18rem;">
+    <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h2 class="card-title"><c:out value="${ad.title}" /></h2>
             <p class="card-text"><c:out value="${ad.description}" /></p>
@@ -21,7 +21,7 @@
         </div>
     </div>
     </c:forEach>
-</div>
+<%--</div>--%>
 
 
 </div>
