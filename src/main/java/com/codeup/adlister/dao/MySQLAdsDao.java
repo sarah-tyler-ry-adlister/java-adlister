@@ -65,22 +65,19 @@ public class MySQLAdsDao implements Ads {
     }
 
     public List<Ad> searchAd(String keyword) {
-        List<Ad> adList = new ArrayList<>();
         try {
-
-            String searchQuery = "SELECT * FROM ads WHERE description OR title LIKE ?";
+            String searchQuery = "SELECT * FROM ads AS a LEFT JOIN ad_category AS ac ON a.id = ac.ad_id JOIN categories as c ON c.id = ac.category_id WHERE (a.description LIKE ? OR a.title LIKE ? OR c.name LIKE ?)";
             String searchTermWithWildcards = "%" + keyword + "%";
             PreparedStatement stmt = connection.prepareStatement(searchQuery);
             stmt.setString(1, searchTermWithWildcards);
+            stmt.setString(2, searchTermWithWildcards);
+            stmt.setString(3, searchTermWithWildcards);
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
-
         } catch (SQLException e) {
             throw new RuntimeException("Error in searching the ad", e);
         }
     }
-
-
 
     @Override
     public Long insert(Ad ad) {
@@ -102,8 +99,8 @@ public class MySQLAdsDao implements Ads {
     @Override
     public Long updateAd(Ad ad, Ad updateAd) {
         try {
-            String insertQuery = "UPDATE ads SET user_id = ?, title = ?, description = ? WHERE id = ?";
-            PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
+            String updateQuery = "UPDATE ads SET user_id = ?, title = ?, description = ? WHERE id = ?";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, (int) ad.getUserId());
             stmt.setString(2, updateAd.getTitle());
             stmt.setString(3, updateAd.getDescription());
@@ -113,7 +110,7 @@ public class MySQLAdsDao implements Ads {
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error updating a new ad.", e);
+            throw new RuntimeException("Error updating an ad.", e);
         }
     }
 
@@ -128,7 +125,7 @@ public class MySQLAdsDao implements Ads {
             rs.next();
             return rs.getLong(1);
         } catch (SQLException e) {
-            throw new RuntimeException("Error deleting a new ad.", e);
+            throw new RuntimeException("Error deleting an ad.", e);
         }
     }
 

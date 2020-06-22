@@ -21,7 +21,6 @@ public class MySQLUsersDao implements Users {
         }
     }
 
-
     @Override
     public User findByUsername(String username) {
         String query = "SELECT * FROM users WHERE username = ? LIMIT 1";
@@ -44,7 +43,7 @@ public class MySQLUsersDao implements Users {
             ResultSet rs = stmt.executeQuery();
             return extractUser(rs);
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding a user by username", e);
+            throw new RuntimeException("Error finding a user by id", e);
         }
     }
 
