@@ -18,6 +18,7 @@
                 <label for="password">Password</label>
                 <input id="password" name="password" class="form-control" type="password">
             </div>
+            <input type="hidden" name="redirect" value="${redirect}">
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>
